@@ -1,0 +1,14 @@
+canonical_schema:
+  ad_library_id: string
+  advertiser_name: string
+  published_date: datetime
+  media_type: string
+  ad_creative_body: string
+  ad_creative_body_lang: string
+field_mapping:
+  ad_library_id: [ad_library_id]
+  advertiser_name: [advertiser_name]
+  published_date: [published_date]
+  media_type: [media_type]
+  ad_creative_body: [ad_creative_body]
+  ad_creative_body_lang: [ad_creative_body_lang]
