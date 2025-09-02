@@ -18,6 +18,10 @@ Run ETL for data collection. meta_scrapped_ads.csv file will be created
 ```bash
 python meta_ads_etl.py
 ```
+Run top_ten_ads.py for getting top 10 ads
+```bash
+python top_ten_ads.py
+```
 
 ## Briefly explaination of the approach
 
@@ -31,3 +35,6 @@ I didn't have access to Facebook Ads API, thats why I use web scraping approach 
 | `creative_type_score` | 0.2        | Video, image, etc. affect engagement, but are not the key factor.                             | video=2, image=1, both=2.5
 | `text_len_score`      | 0.15       | Short texts usually work better, but are less critical.                                       | 1 / (len(text) + 1)
 | `language_score`      | 0.1        | It affects indirectly — the correct language for the audience, a small penalty, but important.| English - 1, Other - 0.5 
+
+## Top 10 ads
+You can see top 10 ads in the top_ten_ads.csv
