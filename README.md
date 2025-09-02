@@ -12,8 +12,8 @@ cd your-repo
 pip install -r requirements.txt
 ```
 
-## Запуск
-Run ETL for data collection
+## How to use
+Run ETL for data collection. meta_scrapped_ads.csv file will be created
 ```bash
 python meta_ads_etl.py
 ```
