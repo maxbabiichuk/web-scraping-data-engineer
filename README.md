@@ -25,7 +25,8 @@ python top_ten_ads.py
 
 ## Briefly explaination of the approach
 
-I didn't have access to Facebook Ads API, thats why I use web scraping approach for data collection. Data tranformed and saved according to Canonical Schema (in schema.yaml file). Data saved to meta_scrapped_ads.csv file
+I didn't have access to Facebook Ads API, thats why I use web scraping approach for data collection. Data tranformed and saved according to Canonical Schema (in schema.yaml file). Data saved to meta_scrapped_ads.csv file.
+Then added proxy performance metrics (see below) and compute total score for every adds. Then I tried to get top 10 different adds, by grouping adds by adviser, message and media type (see list below).
 
 ## Proxy performance metrics
 | Score                 | Weight     | Description                                                                                   | Formula
