@@ -23,10 +23,11 @@ def get_canonical_data(html_content: str, locale: str) -> List[Dict]:
 
     for record in all_records:
         mapped = map_to_canonical(record, locale)
+
         key = tuple(mapped.get(field) for field in canonical_schema.keys())
         if key not in seen:
             seen.add(key)
-        canonical_data.append(mapped)
+            canonical_data.append(mapped)
 
     print("Data transformed to canonical format")
     return canonical_data

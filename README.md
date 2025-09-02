@@ -22,3 +22,12 @@ python meta_ads_etl.py
 ## Briefly explaination of the approach
 
 I didn't have access to Facebook Ads API, thats why I use web scraping approach for data collection. Data tranformed and saved according to Canonical Schema (in schema.yaml file). Data saved to meta_scrapped_ads.csv file
+
+## Proxy performance metrics
+| Score                 | Weight     | Description                                                                                   | Formula
+| --------------------- | ---------- | --------------------------------------------------------------------------------------------- | -----------
+| `ad_age_days`         | 0.3        | One of the strongest signals: it spins for a long time → the ad is “alive” and effective.     | log(1  + ad_age_days)
+| `ads_from_same_page`  | 0.25       | Page activity shows that the advertiser is professional and scales campaigns.                 | sqrt(ads_from_same_page)
+| `creative_type_score` | 0.2        | Video, image, etc. affect engagement, but are not the key factor.                             | video=2, image=1, both=2.5
+| `text_len_score`      | 0.15       | Short texts usually work better, but are less critical.                                       | 1 / (len(text) + 1)
+| `language_score`      | 0.1        | It affects indirectly — the correct language for the audience, a small penalty, but important.| English - 1, Other - 0.5 
