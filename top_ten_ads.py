@@ -1,6 +1,9 @@
 import pandas as pd
 from datetime import timedelta
 import numpy as np
+import yaml
+config = yaml.safe_load(open("schema.yaml"))
+canonical_schema = config["canonical_schema"]
 
 weights = {
     "ad_age_days_score": 0.3,
@@ -26,5 +29,6 @@ df = df[df["published_date"] == df["min_published_date"]].drop(columns="min_publ
 df = df.groupby(["advertiser_name", "ad_creative_body", "media_type"], as_index=True).first().reset_index()
 
 df_sorted = df.sort_values(by='total_score', ascending=False).reset_index(drop=True)
-df_sorted.head(10).to_csv('top_ten_ads.csv', index=False)
+df_filtered = df_sorted.reindex(columns=[col for col in canonical_schema if col in df.columns])
+df_filtered.head(10).to_csv('top_ten_ads.csv', index=False)
 print("Top ten ads saved to 'top_ten_ads.csv'")
