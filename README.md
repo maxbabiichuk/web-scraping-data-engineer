@@ -13,7 +13,12 @@ pip install -r requirements.txt
 ```
 
 ## How to use
+
 Run ETL for data collection. meta_scrapped_ads.csv file will be created
 ```bash
 python meta_ads_etl.py
 ```
+
+## Briefly explaination of the approach
+
+I didn't have access to Facebook Ads API, thats why I use web scraping approach for data collection. Data tranformed and saved according to Canonical Schema (in schema.yaml file). Data saved to meta_scrapped_ads.csv file
